@@ -11,7 +11,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <App />
+        <div className="dark:bg-primary">
+          <App />
+        </div>
       </ThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>

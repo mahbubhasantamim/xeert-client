@@ -3,10 +3,10 @@ import ThemeButton from "../../../components/shared/ThemeButton/ThemeButton";
 const HomePage = () => {
   return (
     <>
-      <div>
-        <h2 className="text-center dark:bg-primary dark:text-secondary">Home page</h2>
-        <ThemeButton />
+      <div className="text-center">
+        <span className="p-4 inline-block dark:bg-secondary">Home page</span>
       </div>
+      <ThemeButton />
     </>
   );
 };
