@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "fira-sans";
+    src: url("./assets/fonts/FiraSansExtraCondensed-Regular.ttf");
+  }
+  @font-face {
+    font-family: "edu-nsw";
+    src: url("./assets/fonts/EduNSWACTFoundation-VariableFont_wght.ttf");
+  }
