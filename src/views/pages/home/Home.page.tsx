@@ -1,8 +1,14 @@
+import CatagoryComp from "./components/Catagory/CatagoryComp";
+import HeroComp from "./components/Hero/HeroComp";
+
 const HomePage = () => {
   return (
     <>
-      <div className="text-center">
-        <span className="p-4 inline-block dark:bg-secondary">Home page</span>
+      <div className="">
+        <div className="">
+          <HeroComp />
+          <CatagoryComp />
+        </div>
       </div>
     </>
   );

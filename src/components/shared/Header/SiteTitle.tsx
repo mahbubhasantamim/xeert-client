@@ -9,7 +9,7 @@ function SiteTitle() {
 
   return (
     <>
-      <div className="md:w-4/5 px-8 md:px-0 mx-auto py-4 flex justify-between border-b dark:border-black">
+      <div className="md:w-4/5 px-8 md:px-0 mx-auto py-3 flex justify-between border-b dark:border-black">
         <div className="flex gap-4 text-primary dark:text-secondary">
           <div className="text-xl">
             <HiBars3BottomLeft />
