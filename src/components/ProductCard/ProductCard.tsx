@@ -32,7 +32,7 @@ function ProductCard({ products }: ProspType) {
                   <img src={product.productImg} alt="" />
 
                   {/* discount & new label */}
-                  <div className="flex flex-col gap-1 p-2 rounded-md absolute top-2 left-1 z-50 text-secondary">
+                  <div className="flex flex-col gap-1 p-2 rounded-md absolute top-2 left-1 z-50 text-secondary font-Edu-nsw">
                     <p className="py-[2px] px-3 text-xs text-center rounded-sm bg-red-500">
                       20%
                     </p>
@@ -45,9 +45,9 @@ function ProductCard({ products }: ProspType) {
                   <h1 className="text-xs text-primary dark:text-secondary">
                     {product.productName}
                   </h1>
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
                     {product.productPrice} <span>Tk</span>{" "}
-                    <span className="underline">199</span>
+                    <span className="line-through">199</span>
                   </p>
                 </div>
               </Link>

@@ -1,20 +1,69 @@
+import { Carousel } from "flowbite-react";
 import LinkBtn from "../../../../../components/shared/LinkBtn/LinkBtn";
 
 function HeroComp() {
+  const slides = [
+    {
+      slideTitle: "Tees & Tops",
+      slideDesc:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid ab id eum labore ipsam nulla iusto dolores neque voluptatibus fugiat.",
+      btnText: "Discover more",
+      btlLink: "",
+    },
+    {
+      slideTitle: "30% OFF",
+      slideDesc:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid ab id eum labore ipsam nulla iusto dolores neque voluptatibus fugiat.",
+      btnText: "Shop now",
+      btlLink: "",
+    },
+  ];
   return (
     <>
-      <div className="bg-slate-300">
-        <div className="md:w-4/5 mx-auto px-8 md:px-0">
-          <div className="md:w-2/5 py-16">
-            <h2 className="text-5xl tracking-wide mb-5">Tees & Tops</h2>
-            <p className="text-xs font-Edu-nsw mb-8">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid
-              ab id eum labore ipsam nulla iusto dolores neque voluptatibus
-              fugiat.
-            </p>
-            <LinkBtn to="">Discover more</LinkBtn>
+      <div className="bg-slate-300 dark:bg-darkPrimary">
+        {slides?.length > 1 ? (
+          <Carousel className="h-56 sm:h-64 xl:h-80 2xl:h-96">
+            {slides?.map((slide, index) => {
+              return (
+                <div
+                  key={index}
+                  className="px-14 md:px-0 md:w-4/5 mx-auto py-16"
+                >
+                  <h2 className="text-3xl md:text-5xl tracking-wide mb-5">
+                    {slide.slideTitle}
+                  </h2>
+                  <p className="text-xs font-Edu-nsw mb-8 w-4/5 sm:w-2/5">
+                    {slide.slideDesc}
+                  </p>
+                  <LinkBtn to={slide.btlLink} color="dark">
+                    {slide.btnText}
+                  </LinkBtn>
+                </div>
+              );
+            })}
+          </Carousel>
+        ) : (
+          <div className="">
+            {slides?.map((slide, index) => {
+              return (
+                <div
+                  key={index}
+                  className="px-8 md:px-0 md:w-4/5 mx-auto py-16"
+                >
+                  <h2 className="text-3xl md:text-5xl tracking-wide mb-5">
+                    {slide.slideTitle}
+                  </h2>
+                  <p className="text-xs font-Edu-nsw mb-8 w-4/5 sm:w-2/5">
+                    {slide.slideDesc}
+                  </p>
+                  <LinkBtn to={slide.btlLink} color="dark">
+                    {slide.btnText}
+                  </LinkBtn>
+                </div>
+              );
+            })}
           </div>
-        </div>
+        )}
       </div>
     </>
   );
