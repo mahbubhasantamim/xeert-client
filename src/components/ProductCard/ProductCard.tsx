@@ -34,7 +34,7 @@ function ProductCard({ products }: ProspType) {
                   {/* discount & new label */}
                   <div className="flex flex-col gap-1 p-2 rounded-md absolute top-2 left-1 z-50 text-secondary font-Edu-nsw">
                     <p className="py-[2px] px-3 text-xs text-center rounded-sm bg-red-500">
-                      20%
+                      -20%
                     </p>
                     <p className="py-[2px] px-3 text-xs text-center rounded-sm bg-primary">
                       New

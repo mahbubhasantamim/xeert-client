@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 function SiteTitle() {
   const siteName = "xeert";
-  const sName = siteName.split("");
 
   return (
     <>
@@ -21,9 +20,9 @@ function SiteTitle() {
         <div>
           <Link
             to="/"
-            className="uppercase font-semibold font-Fira-Sans tracking-widest text-lg text-primary dark:text-secondary"
+            className="uppercase font-semibold font-Fira-Sans tracking-widest text-lg sm:text-xl text-primary dark:text-secondary"
           >
-            {sName.map((item, index, array) => {
+            {siteName.split("").map((item, index, array) => {
               if (index === array.length - 1) {
                 return <span key={index}>{item}</span>;
               } else {
