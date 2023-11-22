@@ -9,7 +9,7 @@ function FooterComp() {
   return (
     <>
       <div className="bg-secondary dark:bg-darkPrimary border-t">
-        <div className="md:w-4/5 px-8 md:px-0 mx-auto py-10 ">
+        <div className="md:w-4/5 px-8 md:px-0 mx-auto py-10">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             <div>
               <Link
@@ -107,6 +107,17 @@ function FooterComp() {
                 </Link>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-primary">
+        <div className="md:w-4/5 px-8 md:px-0 mx-auto py-4 text-slate-400 text-xs grid grid-cols-2">
+          <div>
+            <p>&copy;2023 - All rights reserved | Xeert</p>
+          </div>
+          <div>
+            <span>Bkash</span> | <span>Rocket</span>
           </div>
         </div>
       </div>
