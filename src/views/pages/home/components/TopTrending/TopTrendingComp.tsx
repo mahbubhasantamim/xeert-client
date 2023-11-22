@@ -69,7 +69,7 @@ function TopTrendingComp() {
     <>
       <div className="px-4 md:px-12 py-6 md:py-10 text-primary dark:text-secondary">
         <div className="text-center">
-          <h2 className="text-2xl md:text-3xl tracking-wider  after:block after:border-b-2 after:w-20 after:bg-secondary after:mx-auto after:my-4 md:after:my-6">
+          <h2 className="text-2xl md:text-3xl tracking-wider  after:block after:border-b-2 after:w-20 after:dark:border-darkPrimary after:mx-auto after:my-4 md:after:my-6">
             Top Trending
           </h2>
           <p className="text-xs font-Edu-nsw md:w-4/5 lg:w-3/5 mx-auto">
