@@ -28,7 +28,7 @@ function HeroComp() {
           <Carousel className="h-56 sm:h-64 xl:h-80 2xl:h-96">
             {slides?.map((slide, index) => {
               return (
-                <div className="relative">
+                <div key={index} className="relative">
                   <img
                     src={slide.slideImg}
                     alt=""
@@ -36,10 +36,7 @@ function HeroComp() {
                   />
 
                   <div className="px-8 md:px-0 md:w-4/5 mx-auto ">
-                    <div
-                      key={index}
-                      className=" absolute top-2/4 transform -translate-y-2/4"
-                    >
+                    <div className=" absolute top-2/4 transform -translate-y-2/4">
                       <h2 className="text-3xl md:text-5xl text-primary tracking-wide mb-2 md:mb-5">
                         {slide.slideTitle}
                       </h2>
@@ -59,17 +56,14 @@ function HeroComp() {
           <div className="relative">
             {slides?.map((slide, index) => {
               return (
-                <>
+                <div key={index}>
                   <img
                     src={slide.slideImg}
                     alt=""
                     className=" h-56 sm:h-64 xl:h-80 2xl:h-96 w-full"
                   />
                   <div className="px-8 md:px-0 md:w-4/5 mx-auto ">
-                    <div
-                      key={index}
-                      className="absolute top-2/4 transform -translate-y-2/4"
-                    >
+                    <div className="absolute top-2/4 transform -translate-y-2/4">
                       <h2 className="text-3xl md:text-5xl text-primary tracking-wide mb-2 md:mb-5">
                         {slide.slideTitle}
                       </h2>
@@ -80,8 +74,8 @@ function HeroComp() {
                         {slide.btnText}
                       </LinkBtn>
                     </div>
-                  </div>{" "}
-                </>
+                  </div>
+                </div>
               );
             })}
           </div>

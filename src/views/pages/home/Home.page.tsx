@@ -7,15 +7,11 @@ import TopTrendingComp from "./components/TopTrending/TopTrendingComp";
 const HomePage = () => {
   return (
     <>
-      <div className="">
-        <div className="">
-          <HeroComp />
-          <AdvantageComp />
-          <CatagoryComp />
-          <TopTrendingComp />
-          <SingleCatSec />
-        </div>
-      </div>
+      <HeroComp />
+      <AdvantageComp />
+      <CatagoryComp />
+      <TopTrendingComp />
+      <SingleCatSec />
     </>
   );
 };

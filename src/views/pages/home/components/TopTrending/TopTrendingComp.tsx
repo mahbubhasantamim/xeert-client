@@ -8,13 +8,15 @@ function TopTrendingComp() {
       _id: "01",
       productName: "Blue T-shirt",
       productImg: "./img/prd1.png",
-      productPrice: 199,
+      productPrice: 200,
+      discount: 5,
     },
     {
       _id: "02",
       productName: "Blue T-shirt",
       productImg: "./img/prd2.png",
       productPrice: 349,
+      discount: 10,
     },
     {
       _id: "03",
@@ -51,6 +53,7 @@ function TopTrendingComp() {
       productName: "Blue T-shirt",
       productImg: "./img/prd2.png",
       productPrice: 349,
+      discount: 25,
     },
     {
       _id: "09",
@@ -87,8 +90,10 @@ function TopTrendingComp() {
             <Button type="arrow">Best sales</Button>
           </div>
         </div>
-        <div className="grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3 lg:gap-4">
-          <ProductCard products={products} />
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3 lg:gap-4">
+          {products?.map((product, index) => {
+            return <ProductCard key={index} productInfo={product} />;
+          })}
         </div>
         <div className="text-center pt-6">
           <LinkBtn to="" color="dark">
