@@ -1,4 +1,6 @@
 import { useState } from "react";
+import FilterSideBar from "../../../components/FilterSideBar/FilterSideBar";
+import PaginationComp from "../../../components/Pagination/PaginationComp";
 import ProductCard from "../../../components/ProductCard/ProductCard";
 
 function ShopPage() {
@@ -6,92 +8,107 @@ function ShopPage() {
     {
       _id: "01",
       productName: "Blue T-shirt",
-      productImg: "./img/prd1.png",
+      productImg: "/img/prd1.png",
       productPrice: 200,
       discount: 5,
+      stock: 10,
     },
     {
       _id: "02",
       productName: "Blue T-shirt",
-      productImg: "./img/prd2.png",
+      productImg: "/img/prd2.png",
       productPrice: 349,
       discount: 10,
+      stock: 20,
     },
     {
       _id: "03",
       productName: "Blue T-shirt",
-      productImg: "./img/prd3.png",
+      productImg: "/img/prd3.png",
       productPrice: 1990,
+      stock: 10,
     },
     {
       _id: "04",
       productName: "Blue T-shirt",
-      productImg: "./img/prd1.png",
+      productImg: "/img/prd1.png",
       productPrice: 199,
+      stock: 10,
     },
     {
       _id: "05",
       productName: "Blue T-shirt",
-      productImg: "./img/prd2.png",
+      productImg: "/img/prd2.png",
       productPrice: 349,
+      stock: 10,
     },
     {
       _id: "06",
       productName: "Blue T-shirt",
-      productImg: "./img/prd3.png",
+      productImg: "/img/prd3.png",
       productPrice: 1990,
+      stock: 10,
     },
     {
       _id: "07",
       productName: "Blue T-shirt",
-      productImg: "./img/prd1.png",
+      productImg: "/img/prd1.png",
       productPrice: 199,
+      stock: 10,
     },
     {
       _id: "08",
       productName: "Blue T-shirt",
-      productImg: "./img/prd2.png",
+      productImg: "/img/prd2.png",
       productPrice: 349,
       discount: 25,
+      stock: 10,
     },
     {
       _id: "09",
       productName: "Blue T-shirt",
-      productImg: "./img/prd3.png",
+      productImg: "/img/prd3.png",
       productPrice: 1990,
+      stock: 10,
     },
     {
       _id: "10",
       productName: "Blue T-shirt",
-      productImg: "./img/prd1.png",
+      productImg: "/img/prd1.png",
       productPrice: 199,
+      stock: 0,
     },
     {
       _id: "07",
       productName: "Blue T-shirt",
-      productImg: "./img/prd1.png",
+      productImg: "/img/prd1.png",
       productPrice: 199,
+      stock: 10,
     },
     {
       _id: "08",
       productName: "Blue T-shirt",
-      productImg: "./img/prd2.png",
+      productImg: "/img/prd2.png",
       productPrice: 349,
       discount: 25,
+      stock: 10,
     },
     {
       _id: "09",
       productName: "Blue T-shirt",
-      productImg: "./img/prd3.png",
+      productImg: "/img/prd3.png",
       productPrice: 1990,
+      stock: 10,
     },
     {
       _id: "10",
       productName: "Blue T-shirt",
-      productImg: "./img/prd1.png",
+      productImg: "/img/prd1.png",
       productPrice: 199,
+      stock: 10,
     },
   ];
+
   const itemsPerPage = 10; // Number of items to display per page
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -102,7 +119,7 @@ function ShopPage() {
   const currentItems = products.slice(indexOfFirstItem, indexOfLastItem);
 
   // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -113,42 +130,9 @@ function ShopPage() {
               Shop
             </h2>
           </div>
-          <div className="grid grid-cols-6 py-4">
+          <div className="grid grid-cols-6 px-6">
             <div className="md:col-span-1 ">
-              <div>
-                <h3>Filter by</h3>
-                <div>
-                  <p>Price range</p>
-                </div>
-                <div>
-                  <h3>Categories</h3>
-                  <div>
-                    <input type="checkbox" />
-                    <label htmlFor="">Dresses</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" />
-                    <label htmlFor="">Dresses</label>
-                  </div>
-                  <div>
-                    <input type="checkbox" />
-                    <label htmlFor="">Dresses</label>
-                  </div>
-                </div>
-
-                <div>
-                  <h3>Color</h3>
-                  <div>
-                    <label htmlFor="">Black</label>
-                  </div>
-                  <div>
-                    <label htmlFor="">Red</label>
-                  </div>
-                  <div>
-                    <label htmlFor="">Yellow</label>
-                  </div>
-                </div>
-              </div>
+              <FilterSideBar />
             </div>
 
             <div className="col-span-6 md:col-span-5 px-6">
@@ -160,34 +144,21 @@ function ShopPage() {
                   <p>Sort by price, high to low</p>
                 </div>
               </div>
+
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 py-4">
                 {currentItems?.map((product, index) => {
                   return <ProductCard key={index} productInfo={product} />;
                 })}
               </div>
 
-              <div className="bg-slate-50 flex justify-between p-3 text-xs rounded-md text-primary shadow-md dark:bg-darkPrimary dark:text-secondary">
-                <div>
-                  <p>{`Showing ${indexOfFirstItem + 1}-${
-                    products.length < indexOfLastItem
-                      ? products.length
-                      : indexOfLastItem
-                  } of ${products.length} item(s)`}</p>
-                </div>
-                <div>
-                  {Array.from({
-                    length: Math.ceil(products.length / itemsPerPage),
-                  }).map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => paginate(index + 1)}
-                      className="p-2"
-                    >
-                      {index + 1}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              <PaginationComp
+                currentPage={currentPage}
+                totalPages={Math.ceil(products.length / itemsPerPage)}
+                onPageChange={paginate}
+                itemsLength={products.length}
+                firstItem={indexOfFirstItem}
+                lastItem={indexOfLastItem}
+              />
             </div>
           </div>
         </div>
