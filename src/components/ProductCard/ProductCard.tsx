@@ -33,7 +33,7 @@ function ProductCard({ productInfo }: ProspType) {
           )}
 
           {/* product card  */}
-          <Link to={productInfo._id}>
+          <Link to={`/products/${productInfo._id}`}>
             <div className="relative hover:before:block before:hidden before:h-full before:w-full before:bg-primary before:opacity-30 before:hover:bg-slate-700  before:duration-500 before:absolute before:top-0 before:z-10">
               <div>
                 <img src={productInfo.productImg} alt="" />
