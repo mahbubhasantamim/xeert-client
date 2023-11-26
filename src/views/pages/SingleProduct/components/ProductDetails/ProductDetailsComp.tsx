@@ -1,20 +1,70 @@
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { IoCartOutline, IoWalletOutline } from "react-icons/io5";
 import { MdOutlineSupportAgent } from "react-icons/md";
-import { TiTick } from "react-icons/ti";
-import { useParams } from "react-router-dom";
+import { TiTick, TiTimes } from "react-icons/ti";
+import { ZodType, z } from "zod";
 
-export default function ProductDetailsComp() {
-  const { productId } = useParams();
+type ProductPropType = {
+  product: {
+    _id: string;
+    productName: string;
+    productImg: string;
+    productPrice: number;
+    discountPrice?: number;
+    discount?: number;
+    stock: number;
+    productDesc: string;
+    size: string[];
+  };
+};
+type InputType = {
+  size: string;
+  quantity: number;
+};
+export default function ProductDetailsComp({ product }: ProductPropType) {
+  const inputSchema: ZodType<InputType> = z.object({
+    size: z.string().min(1, { message: "Select a option" }),
+    quantity: z
+      .number()
+      .min(1, { message: "Minimum 1 product" })
+      .max(5, { message: "Maximum 5 product" }),
+  });
 
+  const [count, setCount] = useState(1);
+
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<InputType>({
+    resolver: zodResolver(inputSchema),
+    defaultValues: {
+      quantity: count,
+    },
+  });
+
+  const inc = () => {
+    setCount((prev) => prev + 1);
+    setValue("quantity", count + 1);
+  };
+  const dec = () => {
+    setCount((prev) => prev - 1);
+    setValue("quantity", count - 1);
+  };
+
+  const onSubmit = (data: InputType) => console.log(data);
   return (
     <>
       <div className="sm:grid grid-cols-6 gap-4">
         <div className="col-span-2">
           <div>
             <img
-              src="/img/prd1.png"
-              alt=""
+              src={product?.productImg}
+              alt={product?.productName}
               className="w-3/4 sm:w-full mx-auto"
             />
           </div>
@@ -23,38 +73,38 @@ export default function ProductDetailsComp() {
         <div className="col-span-4">
           <div className="border-b pb-4 sm:pb-6 dark:text-secondary dark:border-b-darkPrimary">
             <h1 className="text-2xl sm:text-3xl text-center sm:text-left font-semibold text-primary dark:text-secondary">
-              Mens blue shirt {productId}
+              {product?.productName}
             </h1>
             <p className="my-4 text-center sm:text-left">
-              <span className="text-2xl mr-2">{`299 Tk`}</span>
-              <span className="line-through">{`399Tk`}</span>
+              {product?.discount ? (
+                <>
+                  <span className="text-2xl mr-2">{`${product?.discountPrice} Tk`}</span>
+                  <span className="line-through">{`${product?.productPrice}Tk`}</span>
+                </>
+              ) : (
+                <span className="text-2xl mr-2">{`${product?.productPrice} Tk`}</span>
+              )}
             </p>
-            <p className="text-xs">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias
-              sequi mollitia obcaecati illum eos accusantium atque quas
-              perspiciatis dignissimos officiis, labore nam voluptatum
-              laudantium iure similique fuga repellendus nesciunt facilis
-              quibusdam doloribus? Ut ullam laborum repellat asperiores
-              perferendis tempore optio.
-            </p>
+            <p className="text-xs">{product?.productDesc}</p>
           </div>
 
           <div>
-            <form action="">
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="flex sm:flex-col items-center gap-4 py-6 sm:py-8 sm:items-start dark:text-secondary">
                 <div className="flex items-center gap-1">
                   <label htmlFor="" className="text-base">
                     Size
                   </label>
                   <select
-                    name=""
-                    id=""
+                    {...register("size")}
                     className="px-2 py-1 border bg-slate-100 rounded-sm text-xs dark:bg-darkPrimary"
                   >
-                    <option value="">XL</option>
-                    <option value="">XL</option>
-                    <option value="">XL</option>
-                    <option value="">XL</option>
+                    <option value="">select</option>
+                    {product?.size?.map((item, index) => (
+                      <option key={index} value={item}>
+                        {item}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -62,27 +112,54 @@ export default function ProductDetailsComp() {
                   <label htmlFor="" className="text-base">
                     Quantity
                   </label>
-                  <input
-                    type="number"
-                    value={1}
-                    className="p-1 w-14 text-xs bg-slate-100 rounded-sm dark:bg-darkPrimary"
-                  />
+                  <div className="border-2 dark:border-darkPrimary">
+                    <button
+                      type="button"
+                      disabled={count <= 1}
+                      onClick={dec}
+                      className="px-2 bg-slate-200 dark:bg-darkPrimary"
+                    >
+                      -
+                    </button>
+                    <input
+                      {...register("quantity", {
+                        valueAsNumber: true,
+                      })}
+                      type="number"
+                      className="p-1 w-10 text-xs bg-transparent border-none rounded-sm"
+                    />
+                    <button
+                      type="button"
+                      disabled={count >= 5 || count >= product?.stock}
+                      onClick={inc}
+                      className="px-2 bg-slate-200 dark:bg-darkPrimary"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
               </div>
 
               <div className="flex gap-2">
                 <button
                   type="submit"
+                  disabled={!(product?.stock > 0)}
                   className="flex items-center gap-1 uppercase bg-primary text-secondary py-2 px-6 text-xs rounded-sm shadow-md hover:bg-slate-500 dark:bg-secondary dark:text-primary dark:hover:bg-slate-400"
                 >
                   <div className="text-xl">
                     <IoCartOutline />
                   </div>
-                  Add to cart
+                  {product?.stock > 0 ? "Add to cart" : "Out of stock"}
                 </button>
-                <span className="flex items-center text-green-400">
-                  <TiTick /> In stock
-                </span>
+                {product?.stock ? (
+                  <span className="flex items-center text-green-400">
+                    <TiTick /> In stock
+                  </span>
+                ) : (
+                  <span className="flex items-center text-red-500">
+                    <TiTimes /> Out of stock
+                  </span>
+                )}
               </div>
             </form>
           </div>

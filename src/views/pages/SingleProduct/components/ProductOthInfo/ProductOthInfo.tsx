@@ -1,11 +1,10 @@
 import { useState } from "react";
+type TabsType = "information" | "description" | "sizetable" | "review";
 
 export default function ProductOthInfo() {
-  const [activeTab, setActiveTab] = useState("information");
+  const [activeTab, setActiveTab] = useState<TabsType>("sizetable");
 
-  const changeTab = (
-    tab: "information" | "description" | "otherinfo" | "review"
-  ) => {
+  const changeTab = (tab: TabsType) => {
     setActiveTab(tab);
   };
 
@@ -38,13 +37,13 @@ export default function ProductOthInfo() {
           <button
             type="button"
             className={
-              activeTab === "otherinfo"
+              activeTab === "sizetable"
                 ? `py-2 px-4 border-b-2 border-b-primary text-xs dark:text-secondary dark:border-b-secondary`
                 : `py-2 px-4 border-b-2 border-b-transparent text-xs text-slate-400 hover:border-b-secondary`
             }
-            onClick={() => changeTab("otherinfo")}
+            onClick={() => changeTab("sizetable")}
           >
-            Other info
+            Size table
           </button>
           <button
             type="button"
@@ -74,7 +73,7 @@ export default function ProductOthInfo() {
               similique obcaecati, tempora
             </p>
           )}
-          {activeTab === "otherinfo" && (
+          {activeTab === "sizetable" && (
             <p className="text-xs p-6 border dark:border-darkPrimary dark:text-slate-300">
               Other info Lorem ipsum dolor sit amet consectetur adipisicing
               elit. Assumenda, suscipit ullam. Delectus est eum rem excepturi
