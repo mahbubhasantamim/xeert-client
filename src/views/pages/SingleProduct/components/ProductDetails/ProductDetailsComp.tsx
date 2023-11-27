@@ -6,6 +6,7 @@ import { IoCartOutline, IoWalletOutline } from "react-icons/io5";
 import { MdOutlineSupportAgent } from "react-icons/md";
 import { TiTick, TiTimes } from "react-icons/ti";
 import { ZodType, z } from "zod";
+import { useCartStore } from "../../../../../store/cartStore";
 
 type ProductPropType = {
   product: {
@@ -34,6 +35,7 @@ export default function ProductDetailsComp({ product }: ProductPropType) {
   });
 
   const [count, setCount] = useState(1);
+  const addToCart = useCartStore((state) => state.addToCart);
 
   const {
     register,
@@ -56,7 +58,15 @@ export default function ProductDetailsComp({ product }: ProductPropType) {
     setValue("quantity", count - 1);
   };
 
-  const onSubmit = (data: InputType) => console.log(data);
+  const onSubmit = (data: InputType) => {
+    const cart = {
+      ...product,
+      size: data.size,
+      quantity: data.quantity,
+    };
+    addToCart(cart);
+    console.log(data);
+  };
   return (
     <>
       <div className="sm:grid grid-cols-6 gap-4">
@@ -106,6 +116,7 @@ export default function ProductDetailsComp({ product }: ProductPropType) {
                       </option>
                     ))}
                   </select>
+                  <span>{errors.size?.message}</span>
                 </div>
 
                 <div className="flex gap-1 items-center">
@@ -137,6 +148,7 @@ export default function ProductDetailsComp({ product }: ProductPropType) {
                       +
                     </button>
                   </div>
+                  <span>{errors.quantity?.message}</span>
                 </div>
               </div>
 

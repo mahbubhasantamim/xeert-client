@@ -3,11 +3,13 @@ import { HiBars3BottomLeft } from "react-icons/hi2";
 import { IoMdShare } from "react-icons/io";
 import { IoCartOutline, IoSearch } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { useCartStore } from "../../../store/cartStore";
 import CartComp from "../../Cart/CartComp";
 
 function SiteTitle() {
   const siteName = "xeert";
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const cartItems = useCartStore((state) => state.cartItems);
 
   return (
     <>
@@ -54,7 +56,7 @@ function SiteTitle() {
           >
             <IoCartOutline />
             <span className="absolute bottom-0 -right-1 text-xs text-red-500 font-bold rounded-full">
-              2
+              {cartItems?.length}
             </span>
           </div>
         </div>
