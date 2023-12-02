@@ -5,6 +5,7 @@ import { CiDeliveryTruck } from "react-icons/ci";
 import { IoCartOutline, IoWalletOutline } from "react-icons/io5";
 import { MdOutlineSupportAgent } from "react-icons/md";
 import { TiTick, TiTimes } from "react-icons/ti";
+import { toast } from "react-toastify";
 import { ZodType, z } from "zod";
 import { useCartStore } from "../../../../../store/cartStore";
 
@@ -65,7 +66,7 @@ export default function ProductDetailsComp({ product }: ProductPropType) {
       quantity: data.quantity,
     };
     addToCart(cart);
-    console.log(data);
+    toast.success(`${product.productName} added to cart`);
   };
   return (
     <>
@@ -123,7 +124,7 @@ export default function ProductDetailsComp({ product }: ProductPropType) {
                   <label htmlFor="" className="text-base">
                     Quantity
                   </label>
-                  <div className="border-2 dark:border-darkPrimary">
+                  <div className="flex border-2 dark:border-darkPrimary">
                     <button
                       type="button"
                       disabled={count <= 1}

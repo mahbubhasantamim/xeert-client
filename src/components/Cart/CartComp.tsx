@@ -37,7 +37,7 @@ export default function CartComp({ fn }: { fn: (x: boolean) => void }) {
               >
                 <TiTimes />
               </div>
-              <Link to="">
+              <Link to={`/products/${item?._id}`}>
                 <div className="flex gap-3 border-b p-2 dark:border-b-primary">
                   <div className="w-14">
                     <img src={item?.productImg} alt="" />
