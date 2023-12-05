@@ -29,6 +29,8 @@ export const products = [
     productName: "Tops",
     productImg: "/img/prd3.png",
     productPrice: 1990,
+    discountPrice: 0,
+    discount: 0,
     stock: 10,
     productDesc:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sequi mollitia obcaecati illum eos accusantium atque quas perspiciatis dignissimos officiis, labore nam voluptatum laudantium iure similique fuga repellendus nesciunt facilis quibusdam doloribus? Ut ullam laborum repellat asperiores perferendis tempore optio.",
@@ -39,6 +41,8 @@ export const products = [
     productName: "Jeans",
     productImg: "/img/prd1.png",
     productPrice: 199,
+    discountPrice: 0,
+    discount: 0,
     stock: 0,
     productDesc:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sequi mollitia obcaecati illum eos accusantium atque quas perspiciatis dignissimos officiis, labore nam voluptatum laudantium iure similique fuga repellendus nesciunt facilis quibusdam doloribus? Ut ullam laborum repellat asperiores perferendis tempore optio.",
@@ -49,6 +53,8 @@ export const products = [
     productName: "Jacket",
     productImg: "/img/prd2.png",
     productPrice: 349,
+    discountPrice: 0,
+    discount: 0,
     stock: 2,
     productDesc:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sequi mollitia obcaecati illum eos accusantium atque quas perspiciatis dignissimos officiis, labore nam voluptatum laudantium iure similique fuga repellendus nesciunt facilis quibusdam doloribus? Ut ullam laborum repellat asperiores perferendis tempore optio.",
@@ -59,6 +65,8 @@ export const products = [
     productName: "Headphone",
     productImg: "/img/prd3.png",
     productPrice: 1990,
+    discountPrice: 0,
+    discount: 0,
     stock: 10,
     productDesc:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sequi mollitia obcaecati illum eos accusantium atque quas perspiciatis dignissimos officiis, labore nam voluptatum laudantium iure similique fuga repellendus nesciunt facilis quibusdam doloribus? Ut ullam laborum repellat asperiores perferendis tempore optio.",
@@ -69,6 +77,8 @@ export const products = [
     productName: "Tops",
     productImg: "/img/prd3.png",
     productPrice: 1990,
+    discountPrice: 0,
+    discount: 0,
     stock: 10,
     productDesc:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sequi mollitia obcaecati illum eos accusantium atque quas perspiciatis dignissimos officiis, labore nam voluptatum laudantium iure similique fuga repellendus nesciunt facilis quibusdam doloribus? Ut ullam laborum repellat asperiores perferendis tempore optio.",
@@ -79,6 +89,8 @@ export const products = [
     productName: "Jeans",
     productImg: "/img/prd1.png",
     productPrice: 199,
+    discountPrice: 0,
+    discount: 0,
     stock: 0,
     productDesc:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sequi mollitia obcaecati illum eos accusantium atque quas perspiciatis dignissimos officiis, labore nam voluptatum laudantium iure similique fuga repellendus nesciunt facilis quibusdam doloribus? Ut ullam laborum repellat asperiores perferendis tempore optio.",
@@ -89,6 +101,8 @@ export const products = [
     productName: "Jacket",
     productImg: "/img/prd2.png",
     productPrice: 349,
+    discountPrice: 0,
+    discount: 0,
     stock: 2,
     productDesc:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sequi mollitia obcaecati illum eos accusantium atque quas perspiciatis dignissimos officiis, labore nam voluptatum laudantium iure similique fuga repellendus nesciunt facilis quibusdam doloribus? Ut ullam laborum repellat asperiores perferendis tempore optio.",
@@ -99,6 +113,8 @@ export const products = [
     productName: "Headphone",
     productImg: "/img/prd3.png",
     productPrice: 1990,
+    discountPrice: 0,
+    discount: 0,
     stock: 10,
     productDesc:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sequi mollitia obcaecati illum eos accusantium atque quas perspiciatis dignissimos officiis, labore nam voluptatum laudantium iure similique fuga repellendus nesciunt facilis quibusdam doloribus? Ut ullam laborum repellat asperiores perferendis tempore optio.",

@@ -15,8 +15,8 @@ type ProductPropType = {
     productName: string;
     productImg: string;
     productPrice: number;
-    discountPrice?: number;
-    discount?: number;
+    discountPrice: number;
+    discount: number;
     stock: number;
     productDesc: string;
     size: string[];

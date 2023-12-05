@@ -70,8 +70,8 @@ export default function CartComp({ fn }: { fn: (x: boolean) => void }) {
             <p>{cartItems?.length} (item)s</p>
             <p>{getTotal} Tk</p>
           </div>
-          <div className="text-center">
-            <LinkBtn to="/cart" color="dark" onClick={() => fn(false)}>
+          <div className="text-center" onClick={() => fn(false)}>
+            <LinkBtn to="/cart" color="dark">
               Processed to checkout
             </LinkBtn>
           </div>

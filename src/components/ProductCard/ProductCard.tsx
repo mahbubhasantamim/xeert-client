@@ -7,7 +7,7 @@ type ProspType = {
     productName: string;
     productImg: string;
     productPrice: number;
-    discount?: number;
+    discount: number;
     stock: number;
   };
 };
@@ -42,7 +42,7 @@ function ProductCard({ productInfo }: ProspType) {
               {/* discount & new label */}
               {productInfo.stock > 0 && (
                 <div className="flex flex-col gap-1 p-2 rounded-md absolute top-2 left-1 z-50 text-secondary font-Edu-nsw">
-                  {productInfo.discount && (
+                  {productInfo.discount > 0 && (
                     <p className="py-[2px] px-3 text-xs text-center rounded-sm bg-red-500">
                       {`-${productInfo?.discount}%`}
                     </p>
