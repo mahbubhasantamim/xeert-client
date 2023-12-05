@@ -54,6 +54,7 @@ function ProductCard({ productInfo }: ProspType) {
                 </div>
               )}
             </div>
+
             <div className="py-3">
               <h1 className="text-xs text-primary dark:text-secondary">
                 {productInfo.productName}
