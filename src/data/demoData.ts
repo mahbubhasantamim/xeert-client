@@ -14,7 +14,7 @@ export const products = [
   },
   {
     _id: "02",
-    productName: "Blue T-shirt",
+    productName: "Mens shirt",
     productImg: "/img/prd2.png",
     productPrice: 349,
     discountPrice: 315,
@@ -26,7 +26,7 @@ export const products = [
   },
   {
     _id: "03",
-    productName: "Blue T-shirt",
+    productName: "Tops",
     productImg: "/img/prd3.png",
     productPrice: 1990,
     stock: 10,
@@ -36,7 +36,7 @@ export const products = [
   },
   {
     _id: "04",
-    productName: "Blue T-shirt",
+    productName: "Jeans",
     productImg: "/img/prd1.png",
     productPrice: 199,
     stock: 0,
@@ -46,7 +46,7 @@ export const products = [
   },
   {
     _id: "05",
-    productName: "Blue T-shirt",
+    productName: "Jacket",
     productImg: "/img/prd2.png",
     productPrice: 349,
     stock: 2,
@@ -56,7 +56,47 @@ export const products = [
   },
   {
     _id: "06",
-    productName: "Blue T-shirt",
+    productName: "Headphone",
+    productImg: "/img/prd3.png",
+    productPrice: 1990,
+    stock: 10,
+    productDesc:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sequi mollitia obcaecati illum eos accusantium atque quas perspiciatis dignissimos officiis, labore nam voluptatum laudantium iure similique fuga repellendus nesciunt facilis quibusdam doloribus? Ut ullam laborum repellat asperiores perferendis tempore optio.",
+    size: ["M", "L", "XL"],
+  },
+  {
+    _id: "07",
+    productName: "Tops",
+    productImg: "/img/prd3.png",
+    productPrice: 1990,
+    stock: 10,
+    productDesc:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sequi mollitia obcaecati illum eos accusantium atque quas perspiciatis dignissimos officiis, labore nam voluptatum laudantium iure similique fuga repellendus nesciunt facilis quibusdam doloribus? Ut ullam laborum repellat asperiores perferendis tempore optio.",
+    size: ["M", "L", "XL"],
+  },
+  {
+    _id: "08",
+    productName: "Jeans",
+    productImg: "/img/prd1.png",
+    productPrice: 199,
+    stock: 0,
+    productDesc:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sequi mollitia obcaecati illum eos accusantium atque quas perspiciatis dignissimos officiis, labore nam voluptatum laudantium iure similique fuga repellendus nesciunt facilis quibusdam doloribus? Ut ullam laborum repellat asperiores perferendis tempore optio.",
+    size: ["M", "L", "XL"],
+  },
+  {
+    _id: "09",
+    productName: "Jacket",
+    productImg: "/img/prd2.png",
+    productPrice: 349,
+    stock: 2,
+    productDesc:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Alias sequi mollitia obcaecati illum eos accusantium atque quas perspiciatis dignissimos officiis, labore nam voluptatum laudantium iure similique fuga repellendus nesciunt facilis quibusdam doloribus? Ut ullam laborum repellat asperiores perferendis tempore optio.",
+    size: ["M", "L", "XL"],
+  },
+  {
+    _id: "10",
+    productName: "Headphone",
     productImg: "/img/prd3.png",
     productPrice: 1990,
     stock: 10,

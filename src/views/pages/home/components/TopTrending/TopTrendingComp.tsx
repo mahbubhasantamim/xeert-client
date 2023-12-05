@@ -1,83 +1,9 @@
 import ProductCard from "../../../../../components/ProductCard/ProductCard";
 import Button from "../../../../../components/shared/Button/Button";
 import LinkBtn from "../../../../../components/shared/LinkBtn/LinkBtn";
+import { products } from "../../../../../data/demoData";
 
 function TopTrendingComp() {
-  const products = [
-    {
-      _id: "01",
-      productName: "Blue T-shirt",
-      productImg: "/img/prd1.png",
-      productPrice: 200,
-      discount: 5,
-      stock: 20,
-    },
-    {
-      _id: "02",
-      productName: "Blue T-shirt",
-      productImg: "/img/prd2.png",
-      productPrice: 349,
-      discount: 10,
-      stock: 20,
-    },
-    {
-      _id: "03",
-      productName: "Blue T-shirt",
-      productImg: "/img/prd3.png",
-      productPrice: 1990,
-      stock: 20,
-    },
-    {
-      _id: "04",
-      productName: "Blue T-shirt",
-      productImg: "/img/prd1.png",
-      productPrice: 199,
-      stock: 0,
-    },
-    {
-      _id: "05",
-      productName: "Blue T-shirt",
-      productImg: "/img/prd2.png",
-      productPrice: 349,
-      stock: 20,
-    },
-    {
-      _id: "06",
-      productName: "Blue T-shirt",
-      productImg: "/img/prd3.png",
-      productPrice: 1990,
-      stock: 20,
-    },
-    {
-      _id: "07",
-      productName: "Blue T-shirt",
-      productImg: "/img/prd1.png",
-      productPrice: 199,
-      stock: 20,
-    },
-    {
-      _id: "08",
-      productName: "Blue T-shirt",
-      productImg: "/img/prd2.png",
-      productPrice: 349,
-      discount: 25,
-      stock: 20,
-    },
-    {
-      _id: "09",
-      productName: "Blue T-shirt",
-      productImg: "/img/prd3.png",
-      productPrice: 1990,
-      stock: 20,
-    },
-    {
-      _id: "10",
-      productName: "Blue T-shirt",
-      productImg: "/img/prd1.png",
-      productPrice: 199,
-      stock: 20,
-    },
-  ];
   return (
     <>
       <div className="px-4 md:px-12 py-6 md:py-10 text-primary dark:text-secondary">
