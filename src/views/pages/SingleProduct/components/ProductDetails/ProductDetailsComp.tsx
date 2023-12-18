@@ -37,6 +37,16 @@ export default function ProductDetailsComp({ product }: ProductPropType) {
 
   const [count, setCount] = useState(1);
   const addToCart = useCartStore((state) => state.addToCart);
+  const cartItems = useCartStore((state) => state.cartItems);
+
+  const cartQuantitySum = cartItems.reduce((prev, current) => {
+    if (current._id === product._id) {
+      prev += current.quantity;
+    }
+    return prev;
+  }, 0);
+
+  // console.log(cartQuantity);
 
   const {
     register,
@@ -117,7 +127,9 @@ export default function ProductDetailsComp({ product }: ProductPropType) {
                       </option>
                     ))}
                   </select>
-                  <span>{errors.size?.message}</span>
+                  <span className="text-xs text-red-600">
+                    {errors.size?.message}
+                  </span>
                 </div>
 
                 <div className="flex gap-1 items-center">
@@ -142,7 +154,11 @@ export default function ProductDetailsComp({ product }: ProductPropType) {
                     />
                     <button
                       type="button"
-                      disabled={count >= 5 || count >= product?.stock}
+                      disabled={
+                        count >= 5 ||
+                        count >= product?.stock ||
+                        count + cartQuantitySum >= product?.stock
+                      }
                       onClick={inc}
                       className="px-2 bg-slate-200 dark:bg-darkPrimary"
                     >
@@ -156,21 +172,23 @@ export default function ProductDetailsComp({ product }: ProductPropType) {
               <div className="flex gap-2">
                 <button
                   type="submit"
-                  disabled={!(product?.stock > 0)}
+                  disabled={product?.stock - cartQuantitySum < 1}
                   className="flex items-center gap-1 uppercase bg-primary text-secondary py-2 px-6 text-xs rounded-sm shadow-md hover:bg-slate-500 dark:bg-secondary dark:text-primary dark:hover:bg-slate-400"
                 >
                   <div className="text-xl">
                     <IoCartOutline />
                   </div>
-                  {product?.stock > 0 ? "Add to cart" : "Out of stock"}
+                  {product?.stock - cartQuantitySum < 1
+                    ? "Out of stock"
+                    : "Add to cart"}
                 </button>
-                {product?.stock ? (
-                  <span className="flex items-center text-green-400">
-                    <TiTick /> In stock
-                  </span>
-                ) : (
+                {product?.stock - cartQuantitySum < 1 ? (
                   <span className="flex items-center text-red-500">
                     <TiTimes /> Out of stock
+                  </span>
+                ) : (
+                  <span className="flex items-center text-green-400">
+                    <TiTick /> In stock
                   </span>
                 )}
               </div>
